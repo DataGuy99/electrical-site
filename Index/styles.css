@@ -34,6 +34,11 @@ h1,h2,h3,h4{font-weight:700;line-height:1.2;}
 .nav-links a::after{content:'';position:absolute;width:0;height:2px;background:var(--primary);left:0;bottom:-4px;transition:width .3s;}
 .nav-links a:hover{color:var(--accent);}
 .nav-links a:hover::after{width:100%;}
+.nav-dropdown{position:relative;}
+.dropdown-menu{list-style:none;padding:1rem 0 0 1rem;margin:0;display:none;flex-direction:column;gap:.8rem;}
+.nav-links.active .dropdown-menu{display:flex;}
+.dropdown-menu a{font-size:1rem;padding:8px 0;color:var(--light-gray);font-weight:300;}
+.dropdown-menu a:hover{color:var(--accent);padding-left:8px;}
 .hamburger{display:flex;flex-direction:column;gap:6px;cursor:pointer;padding:10px;z-index:11;}
 .hamburger span{width:30px;height:3px;background:var(--light);transition:all .4s cubic-bezier(.68,-.55,.265,1.55);border-radius:2px;}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(7px,7px);}
@@ -234,6 +239,11 @@ footer{text-align:center;padding:2rem 1rem;background:#0b0e12;font-size:.9rem;co
   .hamburger{display:none;}
   .nav-links{position:static;width:auto;height:auto;background:none;flex-direction:row;gap:2rem;padding:0;box-shadow:none;transition:none;display:flex!important;right:auto;}
   .nav-links a{font-size:1.05rem;padding:8px 0;}
+  .dropdown-menu{position:absolute;top:100%;left:0;background:var(--darker);border:1px solid rgba(0,152,179,.3);border-radius:var(--radius);padding:1rem;margin-top:.5rem;min-width:220px;box-shadow:0 8px 25px rgba(0,0,0,.4);display:none;z-index:100;}
+  .nav-dropdown:hover .dropdown-menu{display:flex;}
+  .dropdown-menu a{font-size:.95rem;padding:.6rem 1rem;border-radius:4px;transition:var(--transition);}
+  .dropdown-menu a:hover{background:rgba(0,152,179,.15);padding-left:1rem;}
+  .dropdown-menu a::after{display:none;}
   .stats-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:5rem auto 0;max-width:1000px;}
   .about-grid{grid-template-columns:1.5fr 1fr;gap:4rem;}
   .about-stats{grid-template-columns:repeat(2,1fr);}
