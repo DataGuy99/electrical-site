@@ -171,7 +171,8 @@ footer{text-align:center;padding:2rem 1rem;background:#0b0e12;font-size:.9rem;co
 .benefit-number{font-size:3rem;font-weight:700;color:var(--accent);margin-bottom:1rem;line-height:1;position:relative;z-index:1 !important;}
 .benefit-item h3{margin-bottom:.8rem;font-size:1.2rem;color:var(--light);position:relative;z-index:2;}
 .benefit-item p{color:var(--light-gray);font-size:.9rem;line-height:1.6;position:relative;z-index:2;}
-.background-fade-image{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:auto;opacity:.08;z-index:0;pointer-events:none;filter:blur(2px);transition:opacity 1s ease-out;}
+.background-fade-image{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:auto;opacity:0;z-index:0;pointer-events:none;filter:blur(2px);transition:opacity 1s ease-out;}
+.background-fade-image.visible{opacity:.08;}
 .process-timeline{max-width:1000px;margin:3rem auto 0;position:relative;padding-left:140px;z-index:1;}
 .process-timeline::before{content:'';position:absolute;left:60px;top:40px;bottom:40px;width:3px;background:linear-gradient(to bottom,var(--primary),rgba(0,152,179,.3));border-radius:2px;z-index:1;}
 .process-step{position:relative;margin-bottom:4rem;z-index:1;}
