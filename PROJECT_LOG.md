@@ -12,6 +12,20 @@
 
 ## Version History
 
+### v0.3.0 (2025-10-04)
+- Added dropdown navigation menu from Services tab with glassmorphism effect
+- Updated all service pages (Commercial Electric, Commercial Lighting, Panel Upgrades) from 4-card to 6-card grids
+- Added emoji icons to all service cards across all pages
+- Removed "Licensed & Insured" stat card (reduced from 4 to 3 stat cards on homepage and about)
+- Fixed nav menu alignment and font consistency issues
+- Implemented scroll-based parallax fade effect for background images
+- Added halo_bathroom.jpg to commercial lighting page with dynamic opacity based on scroll position
+- CSS iterated from v9 to v15, script.js versioned to v2
+- Fixed icon z-index stacking issues (icons now visible above overlays)
+- Enhanced dropdown menu hitbox and positioning to prevent overflow
+- **Files:** 18 files, 4.5 MB
+- **Status:** ✅ Live and deployed
+
 ### v0.2.0 (2025-10-03)
 - Completed card styling overhaul
 - Fixed duplicate "Commercial Lighting" text
@@ -166,17 +180,27 @@ electrical-site/
 **Core Features:**
 1. Dynamic copyright year
 2. Mobile menu toggle (hamburger)
-3. Smooth scroll for anchor links
-4. Intersection Observer for fade-in animations
-5. Background image lazy loading for cards
-6. Performance optimizations (preload critical images)
-7. Smooth scroll polyfill for older browsers
+3. Mobile dropdown toggle for Services submenu
+4. Smooth scroll for anchor links
+5. Intersection Observer for fade-in animations
+6. Background image lazy loading for cards
+7. Scroll-based parallax fade for background images (dynamic opacity)
+8. Performance optimizations (preload critical images)
+9. Smooth scroll polyfill for older browsers
 
 **Event Listeners:**
 - Hamburger click → toggle mobile menu
 - Nav link click → close mobile menu
+- Services dropdown click (mobile) → toggle submenu
 - Contact button click → smooth scroll to #contact
 - Giggle button click → scroll to contact
+- Scroll event (throttled) → update background image opacity
+
+**Scroll-Based Opacity Algorithm:**
+- Calculates distance from image center to viewport center
+- Max opacity (.25) when image is perfectly centered
+- Fades to 0 as image scrolls away (top or bottom)
+- Throttled to 10ms for performance
 
 ### Netlify Configuration (netlify.toml)
 
@@ -369,6 +393,12 @@ git push -u origin master
 - **Coverage Area:** East Tennessee
 - **Certifications:** OSHA 30, NFPA 70E
 - **License:** TN #0428934
+
+## Pending Tasks
+- Add 15-30 testimonials carousel to service pages (commercial electric, commercial lighting, panel upgrades only)
+- Remove industrial work testimonial from homepage
+- Prepare about page for owner headshots (placeholder structure for later upload)
+- Add more background fade images to service pages (waiting for client to provide images)
 
 ## Future Enhancements (Not Implemented)
 - Blog section for electrical tips
