@@ -119,8 +119,10 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// Initial update
-updateBackgroundImageOpacity();
+// Initial update on page load
+window.addEventListener('load', () => {
+  updateBackgroundImageOpacity();
+});
 
 // Testimonial Carousel
 function initCarousel(carouselElement) {
