@@ -15,6 +15,21 @@ hamburger.addEventListener('click', () => {
   });
 });
 
+// Mobile dropdown toggle for Services
+const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+if (navDropdown && dropdownMenu) {
+  const navLinkSpan = navDropdown.querySelector('.nav-link');
+  if (navLinkSpan) {
+    navLinkSpan.addEventListener('click', (e) => {
+      if (window.innerWidth < 769 && navLinks.classList.contains('active')) {
+        e.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+      }
+    });
+  }
+}
+
 // Close mobile menu when clicking on links
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
@@ -23,6 +38,8 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         document.body.classList.remove('no-scroll');
+        // Reset dropdown
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
       });
     }
   });
