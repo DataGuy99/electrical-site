@@ -171,6 +171,9 @@ footer{text-align:center;padding:2rem 1rem;background:#0b0e12;font-size:.9rem;co
 .benefit-number{font-size:3rem;font-weight:700;color:var(--accent);margin-bottom:1rem;line-height:1;position:relative;z-index:1 !important;}
 .benefit-item h3{margin-bottom:.8rem;font-size:1.2rem;color:var(--light);position:relative;z-index:2;}
 .benefit-item p{color:var(--light-gray);font-size:.9rem;line-height:1.6;position:relative;z-index:2;}
+.image-showcase{max-width:900px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-hover);border:1px solid rgba(0,152,179,.2);}
+.image-showcase img{width:100%;height:auto;display:block;transition:var(--transition);}
+.image-showcase:hover img{transform:scale(1.02);}
 .process-timeline{max-width:1000px;margin:3rem auto 0;position:relative;padding-left:140px;}
 .process-timeline::before{content:'';position:absolute;left:60px;top:40px;bottom:40px;width:3px;background:linear-gradient(to bottom,var(--primary),rgba(0,152,179,.3));border-radius:2px;z-index:0;}
 .process-step{position:relative;margin-bottom:4rem;}
