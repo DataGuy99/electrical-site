@@ -96,10 +96,11 @@ function updateBackgroundImageOpacity() {
     const distanceFromCenter = Math.abs(imgCenter - viewportCenter);
     const maxDistance = viewportHeight;
 
-    // Calculate opacity: max (.08) when centered, 0 when far away
-    let opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance)) * 0.08;
+    // Calculate opacity: max (.25) when centered, 0 when far away
+    let opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance)) * 0.25;
 
     img.style.opacity = opacity;
+    console.log('Image opacity:', opacity, 'Distance:', distanceFromCenter, 'Rect:', rect.top);
   });
 }
 
