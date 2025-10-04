@@ -12,6 +12,21 @@
 
 ## Version History
 
+### v0.2.0 (2025-10-03)
+- Completed card styling overhaul
+- Fixed duplicate "Commercial Lighting" text
+- Added new images: halo_bathroom.jpg, concrete_light.jpg, employee1.jpg
+- Enhanced giggle button with intense animations and glow effects
+- Removed all unwanted gradient/light effects from cards
+- Implemented perimeter glow on card hover (teal box-shadow)
+- Added background images to service cards with dark overlay
+- Fixed dark overlay coverage using `inset:-1px`
+- Removed icons from cards per user request
+- Implemented scroll-triggered fade-in animations
+- Fixed inline CSS overrides in index.html and about.html
+- **Files:** 129 files, size TBD
+- **Status:** ✅ Live and deployed
+
 ### v0.1.0 (2025-10-03)
 - Initial project setup and migration
 - Migrated from local folder to GitHub
