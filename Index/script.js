@@ -45,14 +45,18 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Smooth scroll for contact buttons
+// Smooth scroll for contact buttons (only on same page)
 document.querySelectorAll('a[href="#contact"]').forEach(link => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('contact').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      e.preventDefault();
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    // If no #contact section exists, allow default navigation
   });
 });
 
