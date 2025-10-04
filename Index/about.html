@@ -26,8 +26,13 @@
 .about-hero{background:linear-gradient(135deg,rgba(13,17,23,.6) 0%,rgba(0,152,179,.4) 100%),url('/images/hero.jpg') center/cover no-repeat;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;}
 .about-hero-content{max-width:1200px;margin:0 auto;padding:0 1rem;z-index:1;}
 .about-hero h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem;text-shadow:0 2px 10px rgba(0,0,0,.4);}
-.giggle-btn{position:fixed;bottom:20px;left:20px;background:var(--accent);color:var(--dark);border:none;border-radius:50%;width:60px;height:60px;font-size:24px;cursor:pointer;z-index:1000;animation:giggle 3s ease-in-out infinite;}
-@keyframes giggle{0%,100%{transform:rotate(0deg) scale(1);}10%{transform:rotate(-15deg) scale(1.1);}20%{transform:rotate(15deg) scale(1.1);}30%{transform:rotate(-10deg) scale(1.05);}40%{transform:rotate(10deg) scale(1.05);}50%{transform:rotate(-5deg) scale(1.02);}60%{transform:rotate(5deg) scale(1.02);}70%{transform:rotate(-3deg) scale(1.01);}80%{transform:rotate(3deg) scale(1.01);}}
+.giggle-btn{position:fixed;bottom:20px;left:20px;background:var(--accent);color:var(--dark);border:none;border-radius:50%;width:70px;height:70px;font-size:28px;cursor:pointer;box-shadow:0 0 30px rgba(255,252,93,.8),0 0 60px rgba(255,252,93,.4);z-index:1000;display:flex;align-items:center;justify-content:center;animation:giggle-intense 2s ease-in-out infinite,pulse-glow 1.5s ease-in-out infinite;}
+.giggle-btn::before{content:'';position:absolute;inset:-15px;background:radial-gradient(circle,rgba(255,252,93,.6) 0%,rgba(255,252,93,.3) 30%,transparent 70%);border-radius:50%;z-index:-1;animation:radial-pulse 2s ease-in-out infinite;}
+.giggle-btn::after{content:'';position:absolute;inset:-5px;background:radial-gradient(circle,rgba(255,252,93,.4),transparent);border-radius:50%;z-index:-1;opacity:0;animation:explosion 3s ease-in-out infinite;}
+@keyframes giggle-intense{0%,100%{transform:rotate(0deg) scale(1);}5%{transform:rotate(-25deg) scale(1.15);}10%{transform:rotate(25deg) scale(1.15);}15%{transform:rotate(-20deg) scale(1.12);}20%{transform:rotate(20deg) scale(1.12);}25%{transform:rotate(-15deg) scale(1.08);}30%{transform:rotate(15deg) scale(1.08);}35%{transform:rotate(-10deg) scale(1.05);}40%{transform:rotate(10deg) scale(1.05);}45%,55%{transform:rotate(0deg) scale(1);}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 30px rgba(255,252,93,.8),0 0 60px rgba(255,252,93,.4);}50%{box-shadow:0 0 50px rgba(255,252,93,1),0 0 100px rgba(255,252,93,.6),0 0 150px rgba(255,252,93,.4);}}
+@keyframes radial-pulse{0%,100%{transform:scale(0.8);opacity:0.6;}50%{transform:scale(1.2);opacity:0.3;}}
+@keyframes explosion{0%,90%{opacity:0;transform:scale(0.5);}95%{opacity:0.8;transform:scale(2.5);}100%{opacity:0;transform:scale(3);}}
 </style>
 </head>
 <body>
