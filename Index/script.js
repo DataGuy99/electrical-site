@@ -118,6 +118,84 @@ window.addEventListener('scroll', () => {
 // Initial update
 updateBackgroundImageOpacity();
 
+// Testimonial Carousel
+function initCarousel(carouselElement) {
+  const track = carouselElement.querySelector('.carousel-track');
+  const slides = Array.from(carouselElement.querySelectorAll('.testimonial-slide'));
+  const prevBtn = carouselElement.querySelector('.carousel-btn.prev');
+  const nextBtn = carouselElement.querySelector('.carousel-btn.next');
+  const dotsContainer = carouselElement.querySelector('.carousel-dots');
+
+  let currentIndex = 0;
+
+  // Create dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+
+  function updateCarousel() {
+    // Update slides
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentIndex);
+    });
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+
+    // Move track
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  // Event listeners
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  // Auto-advance every 8 seconds
+  let autoAdvance = setInterval(nextSlide, 8000);
+
+  // Pause auto-advance on hover
+  carouselElement.addEventListener('mouseenter', () => {
+    clearInterval(autoAdvance);
+  });
+
+  carouselElement.addEventListener('mouseleave', () => {
+    autoAdvance = setInterval(nextSlide, 8000);
+  });
+
+  // Keyboard navigation
+  carouselElement.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+}
+
+// Initialize all carousels on page
+document.querySelectorAll('.testimonial-carousel').forEach(initCarousel);
+
 // Background loading for cards (if needed)
 const ioBg = new IntersectionObserver((entries) => {
   entries.forEach(e => {
