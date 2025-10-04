@@ -83,6 +83,40 @@ const ioFade = new IntersectionObserver(entries => {
 // Observe all fade-in elements
 document.querySelectorAll('.fade-in').forEach(el => ioFade.observe(el));
 
+// Scroll-based opacity for background images
+function updateBackgroundImageOpacity() {
+  const bgImages = document.querySelectorAll('.background-fade-image');
+  bgImages.forEach(img => {
+    const rect = img.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const imgCenter = rect.top + (rect.height / 2);
+    const viewportCenter = viewportHeight / 2;
+
+    // Calculate distance from image center to viewport center
+    const distanceFromCenter = Math.abs(imgCenter - viewportCenter);
+    const maxDistance = viewportHeight;
+
+    // Calculate opacity: max (.08) when centered, 0 when far away
+    let opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance)) * 0.08;
+
+    img.style.opacity = opacity;
+  });
+}
+
+// Throttle scroll events for performance
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (!scrollTimeout) {
+    scrollTimeout = setTimeout(() => {
+      updateBackgroundImageOpacity();
+      scrollTimeout = null;
+    }, 10);
+  }
+}, { passive: true });
+
+// Initial update
+updateBackgroundImageOpacity();
+
 // Background loading for cards (if needed)
 const ioBg = new IntersectionObserver((entries) => {
   entries.forEach(e => {
