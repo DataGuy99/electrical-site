@@ -310,6 +310,24 @@ const ioBg = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.card[data-bg]').forEach(c => ioBg.observe(c));
 
+// Hide navbar when contact section is visible
+const contactSection = document.getElementById('contact');
+const navbar = document.querySelector('.navbar');
+
+if (contactSection && navbar) {
+  const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  contactObserver.observe(contactSection);
+}
+
 // Performance optimization: Preload critical images
 function preloadCriticalImages() {
   const criticalImages = [
